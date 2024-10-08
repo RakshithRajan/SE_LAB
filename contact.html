@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="homemap" id="contact">
+        <h1>Contact Us</h1>
+        <p><strong>Name:</strong> Software Engineering Lab</p>
+        <p><strong>Address:</strong> Vellore Institute of Technology, Amaravathi.</p>
+        <p><strong>Contact:</strong> +123 456 7890</p>
+        <p><strong>Email:</strong> contact@carrental.com</p>
+        
+        <div id="map"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        
+        var officeLocation = [16.497282, 80.498703]; 
+
+        // Create a map
+        var map = L.map('map').setView(officeLocation, 15);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker to the office location
+        L.marker(officeLocation).addTo(map)
+            .bindPopup('<b>Car Rental Ltd.</b><br>Our Office Location')
+            .openPopup();
+    </script>
+</body>
+</html>
